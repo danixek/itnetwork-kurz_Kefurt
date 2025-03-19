@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|c:\\users\\danix\\source\\repos\\evidencepojisteni\\evidencepojisteni\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|solutionrelative:evidencepojisteni\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|c:\\users\\danix\\source\\repos\\evidencepojisteni\\evidencepojisteni\\insurer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|solutionrelative:evidencepojisteni\\insurer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|c:\\users\\danix\\source\\repos\\evidencepojisteni\\evidencepojisteni\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|solutionrelative:evidencepojisteni\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|c:\\users\\danix\\source\\repos\\evidencepojisteni\\evidencepojisteni\\insurermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F191BF10-8499-41C7-B799-2B53501946F8}|EvidencePojisteni\\EvidencePojisteni.csproj|solutionrelative:evidencepojisteni\\insurermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserInterface.cs",
+              "DocumentMoniker": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\UserInterface.cs",
+              "RelativeDocumentMoniker": "EvidencePojisteni\\UserInterface.cs",
+              "ToolTip": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\UserInterface.cs",
+              "RelativeToolTip": "EvidencePojisteni\\UserInterface.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAmwI8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T23:29:11.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InsurerManager.cs",
+              "DocumentMoniker": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\InsurerManager.cs",
+              "RelativeDocumentMoniker": "EvidencePojisteni\\InsurerManager.cs",
+              "ToolTip": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\InsurerManager.cs",
+              "RelativeToolTip": "EvidencePojisteni\\InsurerManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T23:22:09.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Insurer.cs",
+              "DocumentMoniker": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\Insurer.cs",
+              "RelativeDocumentMoniker": "EvidencePojisteni\\Insurer.cs",
+              "ToolTip": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\Insurer.cs",
+              "RelativeToolTip": "EvidencePojisteni\\Insurer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T22:08:56.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\Program.cs",
+              "RelativeDocumentMoniker": "EvidencePojisteni\\Program.cs",
+              "ToolTip": "C:\\Users\\danix\\source\\repos\\EvidencePojisteni\\EvidencePojisteni\\Program.cs",
+              "RelativeToolTip": "EvidencePojisteni\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T17:03:51.16Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
