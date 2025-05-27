@@ -40,7 +40,7 @@ Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením
 5. Spusťte projekt:
    `dotnet run`
    
-> 💡 **Poznámka:** Pokud se příkaz dotnet ef nezdaří, je pravděpodobně potřeba doinstalovat EF CLI nástroj:
+> 💡 **Poznámka:** Pokud se příkaz `dotnet ef` nezdaří, je pravděpodobně potřeba doinstalovat EF CLI nástroj:  
 `dotnet tool install --global dotnet-ef`
 
 Po úspěšném spuštění se v konzoli objeví adresa (např. https://localhost:5001).
