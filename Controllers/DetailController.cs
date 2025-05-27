@@ -1,0 +1,240 @@
+﻿// using PojistakNET.Migrations;
+using PojistakNET.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
+
+namespace PojistakNET.Controllers
+{
+    public class DetailController : Controller
+    {
+        // DetailController se zaměřuje na detail pojištěnce
+        // Respektive spravuje metody pro správu pojištění daného pojištěnce
+
+        private readonly ILogger<DetailController> _logger;
+        private readonly InsuranceContext _context;
+
+        // Konstruktor s oběma závislostmi
+        public DetailController(InsuranceContext context, ILogger<DetailController> logger)
+        {
+            _context = context;  // Injikuje kontext pro práci s databází
+            _logger = logger;    // Injikuje logger pro logování
+        }
+
+        public IActionResult Index()
+        {
+            return RedirectToAction(nameof(Insurer)); // Přesměrování na Insurer
+        }
+
+        private (string insurerName, int Id)? GetInsurerDetails(int insurerId)
+        {
+            var insurerDetails = _context.Insurers
+                .Where(i => i.Id == insurerId)
+                .Select(i => new { insurerName = i.FirstName + " " + i.LastName, i.Id })
+                .FirstOrDefault();
+
+            // Vrátíme null, pokud pojištěnec neexistuje
+            if (insurerDetails == null)
+            {
+                return null;
+            }
+
+            return (insurerDetails.insurerName, insurerDetails.Id);
+        }
+
+        // Detail pojištěnce
+        public IActionResult Detail(int insurerId)
+        {
+            var insurer = _context.Insurers
+                .Include(i => i.Insurances)  // Načteme také pojištění (vztah 1:N)
+                .FirstOrDefault(i => i.Id == insurerId);  // Získáme prvního pojištěnce s tímto ID
+
+
+            // 404 not found - pokud pojištěnec neexistuje
+            if (insurer == null)
+            {
+                return NotFound();
+            }
+
+            // Vrátí profil pojištěnce
+            return View(insurer);
+        }
+
+        public IActionResult AddInsurance(int insurerId)
+        {
+
+            var insurer = GetInsurerDetails(insurerId);
+
+            // Zkontrolujeme, jestli pojištěnec existuje
+            if (insurer == null)
+            {
+                // Pokud neexistuje, vrátíme 404 stránku nebo přesměrujeme na jinou akci
+                return NotFound("[Pojištěnec nebyl nalezen]");
+            }
+
+            ViewBag.InsurerName = insurer.Value.insurerName;
+            ViewBag.InsurerId = insurer.Value.Id;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddInsurance(int insurerId, Insurance insurance)
+        {
+            if (ModelState.IsValid)
+            {
+                insurance.InsurerId = insurerId; // přiřazení pojištění k pojištěnci
+
+                _context.Add(insurance);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Detail), new { insurerId });
+            }
+            var insurer = GetInsurerDetails(insurerId);
+
+            if (insurer.HasValue)
+            {
+                // Pokud validace selže, vrátí se formulář se stejnými daty
+                ViewBag.InsurerName = insurer.Value.insurerName;
+            }
+
+            // Zajištění, že pojištění obsahuje správné InsurerId při neúspěšné validaci
+            insurance.InsurerId = insurerId;
+
+            return View(insurance);
+        }
+
+        // Editace pojištění
+        public async Task<IActionResult> EditInsurance(int Id, int insurerId)
+        {
+            var insurance = await _context.Insurances.FindAsync(Id);
+            if (insurance == null)
+            {
+                return NotFound();
+            }
+            // Zajistí, že InsurerId bude přítomné ve formuláři
+            insurance.InsurerId = insurerId;
+
+
+            var insurer = GetInsurerDetails(insurerId);
+
+            if (insurer.HasValue)
+            {
+                // Pokud validace selže, vrátí se formulář se stejnými daty
+                ViewBag.InsurerName = insurer.Value.insurerName;
+            }
+
+            return View(insurance);
+        }
+
+        // Uložení změn pojištění
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditInsurance(int Id, Insurance insurance)
+        {
+            if (Id != insurance.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Ověření, že pojištěnec existuje
+                    var insurerExists = await _context.Insurers
+                        .FirstOrDefaultAsync(i => i.Id == insurance.InsurerId);
+
+                    if (insurerExists == null)
+                    {
+                        ModelState.AddModelError("InsurerId", "Pojištěnec s tímto ID neexistuje.");
+                        return View(insurance);
+                    }
+
+                    // Uložení změn pojištění
+                    _context.Update(insurance);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    // Pokud pojištění neexistuje, vrať NotFound
+                    if (!_context.Insurances.Any(e => e.Id == insurance.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                // Po uložení přesměruj na detail pojištěnce
+                return RedirectToAction(nameof(Detail), new { insurerId = insurance.InsurerId });
+            }
+
+            return View(insurance);
+        }
+
+        // Odstranění pojištění
+        public async Task<IActionResult> DeleteInsurance(int Id)
+        {
+            var insurance = await _context.Insurances.FindAsync(Id);
+            if (insurance == null)
+            {
+                return NotFound();
+            }
+            int insurerId = insurance.InsurerId;
+
+            var insurer = GetInsurerDetails(insurerId);
+
+            if (insurer.HasValue)
+            {
+                // Pokud validace selže, vrátí se formulář se stejnými daty
+                ViewBag.InsurerName = insurer.Value.insurerName;
+            }
+
+            return View(insurance);
+        }
+
+        // Potvrzení odstranění pojištění
+        [HttpPost, ActionName("DeleteInsurance")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteInsuranceConfirmed(int Id)
+        {
+            var insurance = await _context.Insurances.FindAsync(Id);
+            if (insurance != null)
+            {
+                // Pokud pojištění existuje, smažeme ho
+                _context.Insurances.Remove(insurance);
+                await _context.SaveChangesAsync();
+
+                // Přesměrování zpět na detail pojištěnce
+                return RedirectToAction(nameof(Detail), new { insurerId = insurance.InsurerId });
+            }
+
+            // Pokud pojištění neexistuje...
+            return NotFound();
+        }
+
+        // Detail pojištění
+        public async Task<IActionResult> DetailInsurance(int Id)
+        {
+            var insurance = await _context.Insurances.FindAsync(Id);
+            if (insurance == null)
+            {
+                return NotFound();
+            }
+
+            int insurerId = insurance.InsurerId;
+
+            var insurer = GetInsurerDetails(insurerId);
+
+            if (insurer.HasValue)
+            {
+                // Pokud validace selže, vrátí se formulář se stejnými daty
+                ViewBag.InsurerName = insurer.Value.insurerName;
+            }
+
+            return View(insurance);
+        }
+
+    }
+}

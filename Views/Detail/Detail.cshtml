@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Detail pojištěnce";
+}
+
+@model PojistakNET.Models.Insurer
+
+<div class="row mb-4">
+    <!-- Levá část - obrázek -->
+    <div class="col-12 col-sm-4 col-md-2">
+        <img src="~/img/default_avatar.png" class="img-fluid m-2" style="width: 100%; max-width: 150px; border: 1px solid black" />
+    </div>
+
+    <!-- Pravá část - informace o pojištěnci -->
+    <div class="col-12 col-sm-8 col-md-10 mt-2">
+        <h2>@Model.FirstName @Model.LastName</h2>
+
+        <!-- Informace o pojištěnci -->
+        <div class="row">
+            <div class="col-6 col-md-4">@Model.Street</div>
+            <div class="col-6 col-md-8">@Model.Email</div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-4">@Model.City</div>
+            <div class="col-6 col-md-8">
+                @PojistakNET.Helpers.PhoneHelper.FormatPhoneNumber(Model.Phone)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                @PojistakNET.Helpers.PostcodeHelper.FormatPostcode(Model.Postcode)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Sjednaná pojištění</h3>
+@if (Model.Insurances != null && Model.Insurances.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pojištění</th>
+                <th>Částka</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var insurance in Model.Insurances)
+            {
+                <tr>
+                    <td class="align-middle">
+                        <a href="@Url.Action("DetailInsurance", "Detail", new { Id = insurance.Id })">
+                            @insurance.Name
+                        </a>
+                    </td>
+                    <td class="align-middle">@PojistakNET.Helpers.MoneyHelper.FormatMoney(insurance.Cost)</td>
+                    <td class="align-middle">
+                        <a href="@Url.Action("DeleteInsurance", new { Id = insurance.Id })" class="btn btn-danger">Odstranit</a>
+                        <a href="@Url.Action("EditInsurance", new { Id = insurance.Id, insurerId = insurance.InsurerId })" class="btn btn-warning">Editovat</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Pojištěnec nemá žádné pojištění.</p>
+}
+
+<div class="d-flex justify-content-center">
+    <a href="@Url.Action("AddInsurance", "Detail", new { insurerId = Model.Id })" class="btn btn-primary m-2 p-2">Přidat pojištění</a>
+    <a href="@Url.Action("EditInsurer", "Home", new { insurerId = Model.Id })" class="btn btn-warning m-2 p-2">Editovat pojištěnce</a>
+    <a href="@Url.Action("DeleteInsurer", "Home", new { insurerId = Model.Id })" class="btn btn-danger m-2 p-2">Odstranit pojištěnce</a>
+</div>
