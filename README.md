@@ -28,10 +28,10 @@ Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením
 1. Naklonujte repozitář  
    `git clone https://github.com/danixek/PojistakNET.git`  
    `cd PojistakNET`
-2. Ověřte připojení k databázi v souboru `appsettings.json`
+2. Ověřte připojení k databázi v souboru `appsettings.json`  
    (pokud používáte výchozí nastavení, přeskočte)
 3. Sestavte projekt:  
-   `dotnet build`
+   `dotnet build`  
    Spuštěním se zkontroluje struktura projektu a automaticky se stáhnou závislosti - NuGet balíčky.
 4. Proveďte migraci databáze:
    ```bash příkazy
