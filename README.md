@@ -30,14 +30,14 @@ Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením
    `cd PojistakNET`
 2. Ověřte připojení k databázi v souboru `appsettings.json`
    (pokud používáte výchozí nastavení, přeskočte)
-3. Sestavte projekt:
+3. Sestavte projekt:  
    `dotnet build`
    Spuštěním se zkontroluje struktura projektu a automaticky se stáhnou závislosti - NuGet balíčky.
 4. Proveďte migraci databáze:
    ```bash příkazy
    dotnet ef database update --context ApplicationDbContext
    dotnet ef database update --context InsuranceContext
-5. Spusťte projekt:
+5. Spusťte projekt:  
    `dotnet run`
    
 > 💡 **Poznámka:** Pokud se příkaz `dotnet ef` nezdaří, je pravděpodobně potřeba doinstalovat EF CLI nástroj:  
