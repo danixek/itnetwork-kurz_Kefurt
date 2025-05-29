@@ -25,7 +25,7 @@ které ukáže nejen mé schopnosti, ale i ochotu programovat a tvořit jedineč
 Pro spuštění projektu doporučuji použít pokročilé editory jako Visual Studio Community nebo JetBrains Rider.
 Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením C# Dev Kit, který nainstaluje .NET SDK včetně nástroje dotnet.
 
-1. Naklonujte repozitář
+1. Naklonujte repozitář  
    `git clone https://github.com/danixek/PojistakNET.git`  
    `cd PojistakNET`
 2. Ověřte připojení k databázi v souboru `appsettings.json`
