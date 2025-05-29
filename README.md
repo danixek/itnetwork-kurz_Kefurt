@@ -26,7 +26,7 @@ Pro spuštění projektu doporučuji použít pokročilé editory jako Visual St
 Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením C# Dev Kit, který nainstaluje .NET SDK včetně nástroje dotnet.
 
 1. Naklonujte repozitář
-   `git clone https://github.com/danixek/PojistakNET.git`
+   `git clone https://github.com/danixek/PojistakNET.git`  
    `cd PojistakNET`
 2. Ověřte připojení k databázi v souboru `appsettings.json`
    (pokud používáte výchozí nastavení, přeskočte)
