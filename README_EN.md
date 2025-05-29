@@ -35,7 +35,7 @@ Alternatively, you can use Visual Studio Code with the C# Dev Kit extension inst
    ```bash příkazy
    dotnet ef database update --context ApplicationDbContext
    dotnet ef database update --context InsuranceContext
-5. Run the project:
+5. Run the project:  
    `dotnet run`
    
 > 💡 **Note:** If the `dotnet ef` command fails, you may need to install the EF CLI tool:  
