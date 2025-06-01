@@ -33,9 +33,9 @@ Alternatively, you can use Visual Studio Code with the C# Dev Kit extension inst
    This will check the project structure and automatically download NuGet dependencies.
 4. Run database migrations:
    ```bash příkazy
-   dotnet ef database update --context ApplicationDbContext
+   dotnet ef database update --context ApplicationDbContext  
    dotnet ef database update --context InsuranceContext
-5. Run the project:
+5. Run the project:  
    `dotnet run`
    
 > 💡 **Note:** If the `dotnet ef` command fails, you may need to install the EF CLI tool:  
