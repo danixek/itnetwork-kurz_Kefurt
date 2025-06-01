@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Vítá Vás Pojišťák.NET";
+
+    // Setting of on/off of width body container in _Layout.cshtml
+    // container-fluid - full width, container - margin width
+    ViewData["LayoutContainerClass"] = "container-fluid";
+}
+
+@model X.PagedList.IPagedList<PojistakNET.Models.Insurer>
+@using X.PagedList.Mvc.Core;
+<section class="pojistak-section-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-8 fs-5">
+                <h1>Vaše jistota? Pojišťák.NET</h1>
+                <p>Potřebujete evidenci pojištěnců? My ji máme. A bude ještě lepší.</p>
+                <p>Pojišťák.NET je moderní aplikace pro správu pojištění, která roste s vámi – zatím ještě bez
+                    recepce,
+                    kafe
+                    zdarma a podpory 24/7, ale s o to větší péčí o vývoj.</p>
+            </div>
+            <div class="col-4 pojistak-mainImage-container">
+                <img src="~/img/PojistakNET_logo2.png" alt="Pojišťák" />
+                <p>Pojišťákovi zlobí zámek od kanceláře – dnes se dovnitř nedostane.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pojistak-section-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-4 pojistak-mainImage-container">
+                <img src="~/img/PojistakNET_logo3.png" alt="Pojišťák" />
+                <p>Pojišťák si na chvíli odskočil, ale brzy se vrátí.</p>
+            </div>
+            <div class="col-8 fs-5">
+                <p>Co Pojišťák už zvládne?</p>
+                <ul class="custom-list">
+                    <li>založí vám nového pojištěnce,</li>
+                    <li>přiřadí mu pojištění,</li>
+                    <li>a brzy vám otevře i přístup do administrace.</li>
+                </ul>
+                <p>Chcete být u toho? Sledujte vývoj. Pojišťák si právě žehlí košili.</p>
+            </div>
+        </div>
+    </div>
+</section>

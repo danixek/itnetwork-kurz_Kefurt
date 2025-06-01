@@ -11,8 +11,3 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
     }
 }
-
-public class ApplicationUser : IdentityUser
-{
-    // můžeš přidat vlastní properties
-}

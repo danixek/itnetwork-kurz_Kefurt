@@ -1,54 +1,135 @@
-﻿<!DOCTYPE html>
+﻿@{
+    // UnderDevelopment Warning message
+    var warningMessage = Context.Items["WarningMessage"] as string;
+    var path = ViewContext.HttpContext.Request.Path;
+
+    // Setting of on/off of width body container
+    var layoutContainerClass = ViewData["LayoutContainerClass"] as string ?? "container-fluid";
+}
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Pojišťák.NET</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PojistakNET.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark text-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand me-3" asp-area="" asp-controller="Home" asp-action="Insurer">Pojišťák.NET</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-themed mb-3">
+            <div class="container">
+
+                <!-- Brand: logo + název -->
+                <a class="d-flex align-items-center navbar-brand me-4 text-decoration-none" asp-area=""
+                    asp-controller="Home" asp-action="Index">
+                    <img src="~/img/PojistakNET_logo1.png" alt="Logo Pojišťák.NET"
+                        style="width: 40px; height: 40px; object-fit: cover; margin-right: 0.5rem;">
+                    <span class="fw-semibold fs-5">Pojišťák.NET</span>
+                </a>
+
+                <!-- Toggle Button for Mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between offset-md-1">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <!-- Main Navigation -->
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.Value == "/" || Context.Request.Path.Value?.Contains("Insurer") == true ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Insurer">Pojištěnci</a>
+                            <a class="nav-link @(Context.Request.Path.Value?.Contains("insurer") == true ? "active" : "")"
+                                asp-area="" asp-controller="insurer" asp-action="insurer">Pojištěnci</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.Value?.Contains("Insurance") == true ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Insurance">Pojištění</a>
+                            <a class="nav-link @(Context.Request.Path.Value?.Contains("insurance") == true ? "active" : "")"
+                                asp-area="" asp-controller="insurance" asp-action="insurance">Pojištění</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.Value?.Contains("Events") == true ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Events">Události</a>
+                            <a class="nav-link @(Context.Request.Path.Value?.Contains("articles") == true ? "active" : "")"
+                                asp-area="" asp-controller="home" asp-action="articles">Články</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(Context.Request.Path.Value?.Contains("About") == true ? "active" : "")" asp-area="" asp-controller="Home" asp-action="About">O aplikaci...</a>
+                            <a class="nav-link @(Context.Request.Path.Value?.Contains("about") == true ? "active" : "")"
+                                asp-area="" asp-controller="home" asp-action="about">O nás</a>
                         </li>
-                        @*
-                        @if (User.Identity.IsAuthenticated)
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.Value?.Contains("contact") == true ? "active" : "")"
+                                asp-area="" asp-controller="home" asp-action="contact">Kontakt</a>
+                        </li>
+                    </ul>
+
+
+                    <!-- Right Actions -->
+                    <ul class="navbar-nav ms-auto">
+                        @if (User.Identity?.IsAuthenticated ?? false)
                         {
-                            <form method="post" asp-area="" asp-controller="Account" asp-action="Logout">
-                                <button type="submit">Logout</button>
-                            </form>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="logout">Odhlásit</a>
+                            </li>
                         }
                         else
                         {
-                            <a asp-controller="Account" asp-action="Login">Login</a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="login">Přihlásit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="register">Registrovat</a>
+                            </li>
                         }
-                        *@
+
+                        <!-- Theme toggle button -->
+                        <li class="nav-item mt-1">
+                            <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" data-bs-tooltip="tooltip"
+                                data-bs-placement="bottom" style="border-color: transparent"
+                                aria-label="Změnit vzhled stránky" data-bs-original-title="Změnit vzhled stránky">
+                                <i class="bi bi-circle-half"></i>
+                            </button>
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    @* Layout container --> ON/OFF | container-fluid/container *@
+    <div class="@ViewData["LayoutContainerClass"] mt-5 pt-5 body-container">
+        <div class="container">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Zavřít"></button>
+                </div>
+            }
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @TempData["Error"]
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Zavřít"></button>
+                </div>
+            }
+
+            @if (!path.StartsWithSegments("/admin") && !string.IsNullOrEmpty(warningMessage))
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <img src="~/img/warning-icon.png" alt="Warning"
+                        style="width: 24px; height: 24px; margin-right: 0.5rem;">
+                    @Html.Raw(warningMessage)
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Zavřít"></button>
+                </div>
+            }
+        </div>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -62,6 +143,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/theme-toggler.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

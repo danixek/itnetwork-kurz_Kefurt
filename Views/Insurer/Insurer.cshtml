@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Seznam pojištěnců";
+}
+
+@model X.PagedList.IPagedList<PojistakNET.Models.Insurer>
+@using X.PagedList.Mvc.Core;
+
+<h2>Pojištěnci</h2>
+
+<div class="d-flex justify-content-center">
+    <a href="@Url.Action("add", "insurer")" class="btn btn-primary">Nový pojištěnec</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="align-middle">Jméno</th>
+            <th class="align-middle">Bydliště</th>
+            <th class="align-middle"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var insurer in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    <a href="@Url.Action("detail", "insurance", new { insurerId = insurer.Id })">
+                        @insurer.FirstName @insurer.LastName
+                    </a>
+                </td>
+                <td class="align-middle">@insurer.Street, @insurer.City</td>
+                <td class="align-middle">
+                    <a href="@Url.Action("DeleteInsurer", new { insurerId = insurer.Id })"
+                        class="btn btn-danger">Odstranit</a>
+                    <a href="@Url.Action("EditInsurer", new { insurerId = insurer.Id })"
+                        class="btn btn-warning">Editovat</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- Přidáme stránkovací navigaci -->
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("insurer", new { page }), new PagedListRenderOptions
+    {
+        UlElementClasses = new[] { "pagination" }, // Aplikace Bootstrap třídy
+        LiElementClasses = new[] { "page-item" }, // Aplikace Bootstrap třídy na <li>
+        PageClasses = new[] { "page-link" }, // Aplikace Bootstrap třídy na odkazy <a>
+        DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+        DisplayLinkToNextPage = PagedListDisplayMode.Always,
+        DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+        DisplayLinkToLastPage = PagedListDisplayMode.Always,
+        DisplayLinkToIndividualPages = true,
+        DisplayPageCountAndCurrentLocation = false,
+        })
+</div>

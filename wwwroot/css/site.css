@@ -1,5 +1,15 @@
 html {
   font-size: 14px;
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.body-container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 @media (min-width: 768px) {
@@ -8,15 +18,220 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.btn-close-white {
+  filter: invert(1) brightness(2);
+  /* nebo jen invert(1) */
 }
 
 body {
   margin-bottom: 60px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-default,
+:root {
+  --bs-body-bg: rgb(24, 30, 35);
+  --bs-body-color: #f8f9fa;
+  --bs-border-color: #343a40;
+  --bs-secondary-bg: rgb(29, 35, 40);
+  --bs-secondary-color: #adb5bd;
+  --bs-primary-bg: rgb(22, 28, 33);
+  --bs-primary-color: #258cfb;
+  --bs-primary-border-color: rgb(22, 28, 33);
+}
+
+.theme-dark {
+  --bs-body-bg: #212529;
+  --bs-body-color: #f8f9fa;
+  --bs-border-color: #343a40;
+  --bs-secondary-bg: #343a40;
+  --bs-secondary-color: #adb5bd;
+}
+
+.theme-darker {
+  --bs-body-bg: #121212;
+  --bs-body-color: #e0e0e0;
+  --bs-border-color: #1f1f1f;
+  --bs-secondary-bg: #1f1f1f;
+  --bs-secondary-color: #b0b0b0;
+  --bs-primary: #2c2c2c;
+}
+
+.theme-softlight {
+  --bs-body-bg: #373737;
+  --bs-body-color: #f1f1f1;
+  --bs-border-color: #4a4a4a;
+  --bs-secondary-bg: #505050;
+  --bs-secondary-color: #c0c0c0;
+  --bs-primary: #5c5c5c;
+}
+
+.theme-light {
+  --bs-body-bg: #f8f9fa;
+  --bs-body-color: #212529;
+  --bs-border-color: #dee2e6;
+  --bs-secondary-bg: #e9ecef;
+  --bs-secondary-color: #6c757d;
+}
+
+.navbar-themed {
+  background-color: var(--bs-body-bg) !important;
+  opacity: 0.85;
+  color: var(--bs-body-color) !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+}
+
+.navbar-themed .nav-link {
+  color: var(--bs-body-color) !important;
+}
+
+.navbar-themed .nav-link.active {
+  font-weight: bold;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  color: var(--text-primary-color, #ddd);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navbar-themed .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-themed .nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--text-primary-color, #ddd);
+  width: 0%;
+  transition: width 0.3s ease;
+  margin-top: 4px;
+}
+
+.navbar-themed .nav-link:hover::after,
+.navbar-themed .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-brand {
+  color: var(--bs-body-color) !important;
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: rgb(200, 200, 200) !important;
+  transition: 200ms ease-in-out;
+}
+
+/* Logo backgrounds - previous background color of images
+
+drawed logo                - rgb 29, 35, 40
+realistic-drawed logo      - rgb 22, 27, 32
+logo with money            - rgb 22, 28, 33
+
+*/
+
+.alert-warning {
+  background-color: #2b2b2b69;
+  color: #b9b9b9 !important;
+  border-color: #52525269;
+}
+
+a {
+  color: #c0c0c0;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Barevné schéma sekcí */
+.pojistak-section-light {
+  background-color: var(--bs-body-bg) !important;
+  color: #c0c0c0;
+  padding: 1.5rem 1rem;
+}
+
+.pojistak-section-dark {
+  background-color: var(--bs-primary-bg) !important;
+  color: #eee;
+  padding: 1.5rem 1rem;
+}
+
+.pojistak-section-dark p,
+.pojistak-section-dark ul {
+  color: #cce5ff;
+}
+
+/* Vlastní odrážky pro seznamy */
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+  /* odstraní odsazení */
+}
+
+.custom-list li {
+  position: relative;
+  padding-left: 1.5em;
+  /* místo pro šipku */
+}
+
+.custom-list li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  /* zelená, můžeš upravit */
+  font-weight: bold;
+}
+
+/* Velký obrázek s textem */
+.pojistak-mainImage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* zarovná obsah na střed */
+  max-width: 400px;
+  /* trochu víc než obrázek */
+  margin: 0 auto;
+  /* centrování v rámci rodiče */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pojistak-mainImage-container img {
+  width: 100%;
+  /* obrázek vyplní max-width containeru */
+  max-width: 200px;
+  /* omezení velikosti */
+  height: auto;
+  border-radius: 8px;
+}
+
+.pojistak-mainImage-container p {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  /* odpovídá fs-5 */
+  color: #afafaf;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
 }
