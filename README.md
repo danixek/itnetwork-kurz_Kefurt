@@ -25,19 +25,19 @@ které ukáže nejen mé schopnosti, ale i ochotu programovat a tvořit jedineč
 Pro spuštění projektu doporučuji použít pokročilé editory jako Visual Studio Community nebo JetBrains Rider.
 Alternativně lze použít i Visual Studio Code s doinstalovaným rozšířením C# Dev Kit, který nainstaluje .NET SDK včetně nástroje dotnet.
 
-1. Naklonujte repozitář
-   `git clone https://github.com/danixek/PojistakNET.git`
+1. Naklonujte repozitář  
+   `git clone https://github.com/danixek/PojistakNET.git`  
    `cd PojistakNET`
-2. Ověřte připojení k databázi v souboru `appsettings.json`
+2. Ověřte připojení k databázi v souboru `appsettings.json`  
    (pokud používáte výchozí nastavení, přeskočte)
-3. Sestavte projekt:
-   `dotnet build`
+3. Sestavte projekt:  
+   `dotnet build`  
    Spuštěním se zkontroluje struktura projektu a automaticky se stáhnou závislosti - NuGet balíčky.
 4. Proveďte migraci databáze:
-   ```bash příkazy
-   dotnet ef database update --context ApplicationDbContext
+   ```bash příkazy  
+   dotnet ef database update --context ApplicationDbContext  
    dotnet ef database update --context InsuranceContext
-5. Spusťte projekt:
+5. Spusťte projekt:  
    `dotnet run`
    
 > 💡 **Poznámka:** Pokud se příkaz `dotnet ef` nezdaří, je pravděpodobně potřeba doinstalovat EF CLI nástroj:  
