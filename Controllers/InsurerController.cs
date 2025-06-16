@@ -25,6 +25,8 @@ public class InsurerController : Controller
     }
 
     // Pojištěnci
+    [HttpGet]
+    [Route("insurer")]
     public IActionResult Insurer(int? page)
     {
         // Nastavíme velikost stránky (počet pojištěnců na jedné stránce)
@@ -74,7 +76,7 @@ public class InsurerController : Controller
             _logger.LogWarning("Přidání pojištěnce selhalo: {Errors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
         }
 
-        return View(insurer); // Zobrazí formulář znovu, pokud validace selže
+        return View("Add", insurer); // Zobrazí formulář znovu, pokud validace selže
     }
 
 
@@ -87,7 +89,7 @@ public class InsurerController : Controller
         {
             return NotFound();
         }
-        return View(insurer);
+        return View("Edit", insurer);
     }
 
     // POST: Edit
@@ -106,7 +108,7 @@ public class InsurerController : Controller
             {
                 _context.Update(insurer);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Insurer");
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -120,7 +122,7 @@ public class InsurerController : Controller
                 }
             }
         }
-        return View(insurer);
+        return View("Edit", insurer);
     }
 
     // GET: Delete
@@ -135,7 +137,7 @@ public class InsurerController : Controller
             return NotFound();
         }
 
-        return View(insurer);
+        return View("Delete", insurer);
     }
 
     // POST: Delete
@@ -171,5 +173,24 @@ public class InsurerController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    // Detail pojištěnce
+    [HttpGet, ActionName("Detail")]
+    public IActionResult DetailInsurer(int insurerId)
+    {
+        var insurer = _context.Insurers
+            .Include(i => i.Insurances)  // Načteme také pojištění (vztah 1:N)
+            .FirstOrDefault(i => i.Id == insurerId);  // Získáme prvního pojištěnce s tímto ID
+
+
+        // 404 not found - pokud pojištěnec neexistuje
+        if (insurer == null)
+        {
+            return NotFound();
+        }
+
+        // Vrátí profil pojištěnce
+        return View("Detail", insurer);
     }
 }

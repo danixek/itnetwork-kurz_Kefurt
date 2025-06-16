@@ -1,7 +1,5 @@
 # Pojišťák.NET
 
-> ⚠️ Tato verze byla publikována s vědomým technickým dluhem (architektura & interní konzistence budou postupně opraveny v následujících verzích). UI prošlo zásadním redesignem.
-
 Tento projekt vznikl jako závěrečný projekt rekvalifikačního kurzu u ITnetwork. 
 
 Původní verzi jsem vnímal jako nedotaženou, proto jsem se pustil do její revize a rozšíření,  

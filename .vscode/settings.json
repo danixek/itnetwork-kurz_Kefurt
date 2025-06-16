@@ -1,9 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "files.exclude": {
-        "**/bin": true,
-        "**/obj": true
-    },
-    "csharp.format.enable": true
-}
-// This file contains settings for the Visual Studio Code editor.

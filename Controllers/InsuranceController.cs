@@ -21,9 +21,9 @@ namespace PojistakNET.Controllers
             _logger = logger;    // Injikuje logger pro logování
         }
 
-        public IActionResult Index() => RedirectToAction(nameof(Insurer)); // Přesměrování na Insurer
-
         // Pojištění
+        [HttpGet]
+        [Route("insurance")]
         public IActionResult Insurance() => View();
 
         private (string insurerName, int Id)? GetInsurerDetails(int insurerId)
@@ -40,24 +40,6 @@ namespace PojistakNET.Controllers
             }
 
             return (insurerDetails.insurerName, insurerDetails.Id);
-        }
-
-        // Detail pojištěnce
-        public IActionResult Detail(int insurerId)
-        {
-            var insurer = _context.Insurers
-                .Include(i => i.Insurances)  // Načteme také pojištění (vztah 1:N)
-                .FirstOrDefault(i => i.Id == insurerId);  // Získáme prvního pojištěnce s tímto ID
-
-
-            // 404 not found - pokud pojištěnec neexistuje
-            if (insurer == null)
-            {
-                return NotFound();
-            }
-
-            // Vrátí profil pojištěnce
-            return View(insurer);
         }
 
         [HttpGet, ActionName("Add")]
@@ -88,7 +70,8 @@ namespace PojistakNET.Controllers
 
                 _context.Add(insurance);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Detail), new { insurerId });
+                return RedirectToAction("Detail", "Insurer", new { insurerId });
+
             }
             var insurer = GetInsurerDetails(insurerId);
 
@@ -169,7 +152,7 @@ namespace PojistakNET.Controllers
                     }
                 }
                 // Po uložení přesměruj na detail pojištěnce
-                return RedirectToAction(nameof(Detail), new { insurerId = insurance.InsurerId });
+                return RedirectToAction("Detail", "Insurer", new { insurerId = insurance.InsurerId });
             }
 
             return View(insurance);
@@ -210,7 +193,7 @@ namespace PojistakNET.Controllers
                 await _context.SaveChangesAsync();
 
                 // Přesměrování zpět na detail pojištěnce
-                return RedirectToAction(nameof(Detail), new { insurerId = insurance.InsurerId });
+                return RedirectToAction("Detail", "Insurer", new { insurerId = insurance.InsurerId });
             }
 
             // Pokud pojištění neexistuje...
