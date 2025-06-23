@@ -1,5 +1,5 @@
 // Načti z cookie, pokud existuje
-const themes = ['default', 'light', 'softlight', 'dark', 'darker'];
+const themes = ['default', 'softlight', 'dark', 'darker'];
 let currentThemeIndex = 0;
 
 const savedTheme = getCookie('theme');
