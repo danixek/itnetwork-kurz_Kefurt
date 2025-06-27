@@ -198,7 +198,6 @@ a:hover {
     /* vnitřní odsazení článků */
     margin-right: 10px;
 }
-}
 /* Vlastní odrážky pro seznamy */
 .custom-list {
     list-style: none;
@@ -269,21 +268,27 @@ th, td {
     border-color: #28a74550;
     color: #28a745;
 }
+.default_avatar {
+    width: 100%;
+    max-width: 150px;
+    border: 1px solid rgb(100,100,100);
+    filter: brightness(300%) !important;
+}
 
 .pagination .disabled * {
-    background-color: var(--bs-secondary-bg) !important;
-    border-color: var(--bs-secondary-bg) !important;
+    background-color: var(--bs-body-bg) !important;
+    border-color: var(--bs-body-bg) !important;
 }
 
 .pagination .active * {
-    background-color: var(--bs-secondary-bg) !important;
+    background-color: var(--bs-body-bg) !important;
     border: 0px !important;
     border-bottom: 2px solid #0b5ed7 !important;
     font-weight: bold;
 }
 
 .form-control, .form-control:focus {
-    background-color: var(--bs-secondary-bg);
+    background-color: var(--bs-body-bg);
     border: 0px;
     color: rgb(200,200,200)
 }
@@ -303,7 +308,7 @@ th, td {
     margin-bottom: 1rem;
 }
 
-.map-link {
+.link-muted {
     color: rgb(150,150,150) !important;
     text-decoration: none;
 }

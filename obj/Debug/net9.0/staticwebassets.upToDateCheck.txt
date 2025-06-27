@@ -1,3 +1,4 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\default_avatar.png
 wwwroot\img\PojistakNET_logo1.png
@@ -64,10 +65,9 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\favicon.ico
 C:\Users\danix\source\repos\PojistakNET\wwwroot\js\site.js
-C:\Users\danix\source\repos\PojistakNET\wwwroot\js\theme-toggler.js
+C:\Users\danix\source\repos\PojistakNET\wwwroot\css\site.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -124,4 +124,4 @@ C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\jquery\dist\jquery.js
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\danix\source\repos\PojistakNET\wwwroot\css\site.css
+C:\Users\danix\source\repos\PojistakNET\wwwroot\js\theme-toggler.js

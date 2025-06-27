@@ -406,4 +406,4 @@ C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\ref\PojistakNET.dll
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\ndwn0fr87v-hdbmpkw9gs.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\som1pbhq3g-hdbmpkw9gs.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\9lhl128o3y-razkb9rh5o.gz
-C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\bog6snm8mk-n9wsnkno5c.gz
+C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\bog6snm8mk-sp5tz2pgz4.gz
