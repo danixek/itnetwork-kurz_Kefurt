@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+964017ee9b4e0522de114adaf2e0c4c444fca1b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3feb5bb1a95fdc107841936e1b637ce6e2594e1f")]
 [assembly: System.Reflection.AssemblyProductAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
