@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3feb5bb1a95fdc107841936e1b637ce6e2594e1f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+667e70724219e188aa19afd9d6249201cdb8f214")]
 [assembly: System.Reflection.AssemblyProductAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PojistakNET")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
