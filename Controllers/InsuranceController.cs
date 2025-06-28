@@ -24,7 +24,12 @@ namespace PojistakNET.Controllers
         // Pojištění
         [HttpGet]
         [Route("insurance")]
-        public IActionResult Insurance() => View();
+        public async Task<IActionResult> Insurance()
+        {
+            var allInsurances = await _context.Insurances.ToListAsync();
+            return View(allInsurances);
+        }
+
 
         private (string insurerName, int Id)? GetInsurerDetails(int insurerId)
         {

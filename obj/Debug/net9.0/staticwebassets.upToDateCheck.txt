@@ -65,9 +65,9 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+C:\Users\danix\source\repos\PojistakNET\wwwroot\css\site.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\favicon.ico
 C:\Users\danix\source\repos\PojistakNET\wwwroot\js\site.js
-C:\Users\danix\source\repos\PojistakNET\wwwroot\css\site.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\danix\source\repos\PojistakNET\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css

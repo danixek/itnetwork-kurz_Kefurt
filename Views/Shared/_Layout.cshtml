@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="~/PojistakNET.styles.css" asp-append-version="true" />
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-toggleable-sm navbar-light navbar-themed mb-3">
             <div class="container">
@@ -94,7 +94,7 @@
         </nav>
     </header>
     @* Layout container --> ON/OFF | container-fluid/container *@
-    <div class="@ViewData["LayoutContainerClass"] body-container pojistak-section-light" style="padding-top: 90px">
+    <div class="@ViewData["LayoutContainerClass"] pojistak-section-light" style="padding-top: 90px; padding-left: 0px; padding-right: 0px">
         <div class="container">
             @if (TempData["Success"] != null)
             {
@@ -126,52 +126,12 @@
             }
         </div>
 
-        <main role="main">
+        <main role="main" class="flex-grow-1 mt-4">
             @RenderBody()
         </main>
     </div>
-    <section class="pojistak-section-light">
-        <div class="container py-5">
-            <h3 class="w-100 pb-4">Články</h3>
-            <div class="row gy-4">
-                <!-- gx-0 = žádné horizontální mezery, gy-1 = vertikální mezery -->
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article-wrapper">
-                        <div class="pojistak-section-dark">
-                            <h4>Jak založit nového pojištěnce?</h4>
-                            <p>V tomto článku se dozvíte, jak snadno a rychle založit nového pojištěnce v systému Pojišťák.NET.</p>
-                            <a href="/home/articles#new-insurer" class="btn btn-primary">Číst více</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article-wrapper">
-                        <div class="pojistak-section-dark">
-                            <h4>Správa pojištění v Pojišťák.NET</h4>
-                            <p>Zjistěte, jak efektivně spravovat pojištění svých klientů pomocí našeho systému.</p>
-                            <a href="/home/articles#insurance-management" class="btn btn-primary">Číst více</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article-wrapper">
-                        <div class="pojistak-section-dark">
-                            <h4>Nejčastější dotazy</h4>
-                            <p>Odpovědi na nejčastější dotazy týkající se používání Pojišťák.NET.</p>
-                            <a href="/home/articles#faq" class="btn btn-primary">Číst více</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <footer class="footer pojistak-section-dark">
+    <footer id="contact" class="footer pojistak-section-dark mt-auto py-5">
         <div class="container footer-content">
             <h3 class="w-100">Kontakt</h3>
             <div class="row">

@@ -334,8 +334,10 @@ C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\a3ygkwa5zy-2
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
+C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\bog6snm8mk-22qzzk1mqd.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\w3byu57rf2-61n19gt1b8.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\g0imujjnz5-xtxxf3hu2r.gz
+C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\9lhl128o3y-razkb9rh5o.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\tuzayzx9l5-agp80tu62r.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\v6zq06sqpv-st1cbwfwo5.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\rnnl9r22rs-unj9p35syc.gz
@@ -392,6 +394,8 @@ C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\w68uowd95g-f
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\pq7p9m8ewl-dd6z7egasc.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\llu2ose341-5pze98is44.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\ud10de9kza-mlv21k5csn.gz
+C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\ndwn0fr87v-hdbmpkw9gs.gz
+C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\som1pbhq3g-hdbmpkw9gs.gz
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\staticwebassets.development.json
@@ -403,7 +407,3 @@ C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\refint\PojistakNET.dll
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\PojistakNET.pdb
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\PojistakNET.genruntimeconfig.cache
 C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\ref\PojistakNET.dll
-C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\ndwn0fr87v-hdbmpkw9gs.gz
-C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\som1pbhq3g-hdbmpkw9gs.gz
-C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\9lhl128o3y-razkb9rh5o.gz
-C:\Users\danix\source\repos\PojistakNET\obj\Debug\net9.0\compressed\bog6snm8mk-sp5tz2pgz4.gz
