@@ -276,15 +276,16 @@ th, td, tr {
     border-radius: 8px;
 }
 
-.pagination .disabled * {
+.pagination *:not(.active) * {
     background-color: var(--bs-body-bg) !important;
     border-color: var(--bs-body-bg) !important;
+    color: rgb(200,200,200);
 }
 
 .pagination .active * {
     background-color: var(--bs-body-bg) !important;
     border: 0px !important;
-    border-bottom: 2px solid #0b5ed7 !important;
+    border-bottom: 3px solid #0b5ed7 !important;
     font-weight: bold;
 }
 

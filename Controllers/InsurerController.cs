@@ -30,7 +30,7 @@ public class InsurerController : Controller
     public IActionResult Insurer(int? page)
     {
         // Nastavíme velikost stránky (počet pojištěnců na jedné stránce)
-        int pageSize = 5;
+        int pageSize = 6;
         int pageNumber = page ?? 1; // Pokud není stránka definována, vezmeme první stránku
 
         // Načte seznam pojištěnců z databáze, stránkování přímo na úrovni databáze
