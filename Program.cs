@@ -13,31 +13,23 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<InsuranceContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add MVC services to the container
+builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     // případné nastavení Identity options
-    // například nastavení hesla, zámek účtu atd.
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6; // nebo kolik chceš
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/Account/Login"; // přihlašovací redirect
-    options.LogoutPath = "/Account/Logout"; // odhlašovací redirect
-    options.AccessDeniedPath = "/Account/AccessDenied"; // cesta pro přístup odepřen
+    options.LoginPath = "/account/login"; // nebo kam chceš redirectovat nepřihlášené
 });
-
-// Add MVC services to the container
-builder.Services.AddControllersWithViews();
 
 // Redirect to small letter URLs
 builder.Services.AddRouting(options =>

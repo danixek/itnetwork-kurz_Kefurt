@@ -40,7 +40,7 @@ public class AccountController : Controller
 
         if (result.Succeeded)
         {
-            return RedirectToAction("Index", "Insurer");
+            return RedirectToAction("Index", "Insurer"); // nebo kam chceš
         }
         else
         {
@@ -73,24 +73,8 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        Console.WriteLine("Register POST called");
-        Console.WriteLine($"FirstName: {model.FirstName}");
-        Console.WriteLine($"LastName: {model.LastName}");
         if (!ModelState.IsValid)
-        {
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine(error.ErrorMessage);
-            }
             return View(model);
-        }
-
-        var existingUser = await _userManager.FindByNameAsync(model.Email);
-        if (existingUser != null)
-        {
-            ModelState.AddModelError("Email", "Uživatel s tímto emailem již existuje.");
-            return View(model);
-        }
 
         var user = new ApplicationUser
         {
@@ -119,7 +103,6 @@ public class AccountController : Controller
         foreach (var error in result.Errors)
         {
             ModelState.AddModelError("", error.Description);
-            Console.WriteLine("User creation error: " + error.Description);
         }
 
         return View(model);
